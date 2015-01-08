@@ -1,4 +1,4 @@
-# test-clojure-webservice
+# clojure-web-hack
 
 FIXME: description
 
@@ -10,7 +10,7 @@ Download from http://example.com/FIXME.
 
 FIXME: explanation
 
-    $ java -jar test-clojure-webservice-0.1.0-standalone.jar [args]
+    $ java -jar clojure-web-hack-0.1.0-standalone.jar [args]
 
 ## Options
 

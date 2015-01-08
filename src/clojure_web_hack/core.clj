@@ -1,4 +1,4 @@
-(ns test-clojure-webservice.core
+(ns clojure-web-hack.core
   (:gen-class))
 
 (defn -main

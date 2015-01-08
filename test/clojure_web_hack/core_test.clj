@@ -1,6 +1,6 @@
-(ns test-clojure-webservice.core-test
+(ns clojure-web-hack.core-test
   (:require [clojure.test :refer :all]
-            [test-clojure-webservice.core :refer :all]))
+            [clojure-web-hack.core :refer :all]))
 
 (deftest a-test
   (testing "FIXME, I fail."
