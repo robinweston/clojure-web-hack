@@ -12,9 +12,15 @@
    :headers {"Content-Type" "text/plain"}
    :body (str "Hey " (-> request :route-params :user))})
 
+(defn not-found-handler [request]
+  {:status 404
+   :headers {"Content-Type" "text/plain"}
+   :body (str "404: Could not find route for " (-> request :route-params :unknown-route))})
+
 (def routes ["/" {
                   "" hello-world-handler
-                  ["user/" :user] user-handler}])
+                  ["user/" :user] user-handler
+                  [#"(.*)" :unknown-route] not-found-handler}])
 
 (def routes-handler
   (make-handler routes))
