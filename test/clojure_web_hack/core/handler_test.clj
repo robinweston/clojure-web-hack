@@ -9,6 +9,11 @@
       (is (= (:status response) 200))
       (is (= (:body response) "Hello World"))))
 
+  (testing "user route"
+    (let [response (app (mock/request :get "/user/testUser"))]
+      (is (= (:status response) 200))
+      (is (= (:body response) "Hey testUser"))))
+
   (testing "not-found route"
     (let [response (app (mock/request :get "/invalid"))]
       (is (= (:status response) 404)))))

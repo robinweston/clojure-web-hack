@@ -5,7 +5,7 @@
 (defn hello-world-handler [_]
   {:status 200
    :headers {"Content-Type" "text/plain"}
-   :body "Hello World!!!!"})
+   :body "Hello World"})
 
 (defn user-handler [request]
   {:status 200
