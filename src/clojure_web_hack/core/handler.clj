@@ -10,7 +10,7 @@
 (defn user-handler [request]
   {:status 200
    :headers {"Content-Type" "text/plain"}
-   :body (str "Hey " (:user (:route-params request)))})
+   :body (str "Hey " (-> request :route-params :user))})
 
 (def routes ["/" {
                   "" hello-world-handler
