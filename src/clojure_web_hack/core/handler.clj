@@ -2,7 +2,7 @@
   (require  [bidi.ring :refer [make-handler]]
             [ring.middleware.defaults :refer [wrap-defaults site-defaults]]))
 
-(defn hello-world-handler [request]
+(defn hello-world-handler [_]
   {:status 200
    :headers {"Content-Type" "text/plain"}
    :body "Hello World!!!!"})
@@ -10,7 +10,7 @@
 (defn robin-handler [request]
   {:status 200
    :headers {"Content-Type" "text/plain"}
-   :body "Hey Robin"})
+   :body (str "Hey Robin. You came from " (:remote-addr request) )})
 
 (def routes ["/" {
                   "" hello-world-handler
