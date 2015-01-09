@@ -7,7 +7,14 @@
    :headers {"Content-Type" "text/plain"}
    :body "Hello World!!!!"})
 
-(def routes ["/" hello-world-handler])
+(defn robin-handler [request]
+  {:status 200
+   :headers {"Content-Type" "text/plain"}
+   :body "Hey Robin"})
+
+(def routes ["/" {
+                  "" hello-world-handler
+                  "robin" robin-handler}])
 
 (def handler
   (make-handler routes))
