@@ -3,17 +3,19 @@
             [ring.mock.request :as mock]
             [clojure-web-hack.core.handler :refer :all]))
 
+(defn get-response [request-url] (app (mock/request :get request-url)))
+
 (deftest test-app
   (testing "main route"
-    (let [response (app (mock/request :get "/"))]
+    (let [response (get-response "/")]
       (is (= (:status response) 200))
       (is (= (:body response) "Hello World"))))
 
   (testing "user route"
-    (let [response (app (mock/request :get "/user/testUser"))]
+    (let [response (get-response "/user/testUser")]
       (is (= (:status response) 200))
       (is (= (:body response) "Hey testUser"))))
 
   (testing "not-found route"
-    (let [response (app (mock/request :get "/invalid"))]
+    (let [response (get-response "/whatever")]
       (is (= (:status response) 404)))))
