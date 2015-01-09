@@ -7,17 +7,17 @@
    :headers {"Content-Type" "text/plain"}
    :body "Hello World!!!!"})
 
-(defn robin-handler [request]
+(defn user-handler [request]
   {:status 200
    :headers {"Content-Type" "text/plain"}
-   :body (str "Hey Robin. You came from " (:remote-addr request) )})
+   :body (str "Hey " (:user (:route-params request)))})
 
 (def routes ["/" {
                   "" hello-world-handler
-                  "robin" robin-handler}])
+                  ["user/" :user] user-handler}])
 
-(def handler
+(def routes-handler
   (make-handler routes))
 
 (def app
-  (wrap-defaults handler site-defaults))
+  (wrap-defaults routes-handler site-defaults))
